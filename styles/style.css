@@ -1764,11 +1764,11 @@
     color: rgba(var(--aports-white-rgb), 1);
     border: 2px solid rgba(var(--aports-white-rgb), 1);
   }
-  
+/*   
   .main-slider__nav .swiper-button-next::after,
   .main-slider__nav .swiper-button-prev::after {
     display: none;
-  }
+  } */
   
   .main-slider__nav .swiper-button-prev {
     margin-bottom: 10px;
