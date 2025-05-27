@@ -502,40 +502,40 @@
         });
     }
   
-    if ($(".contact-form-validated").length) {
-        $(".contact-form-validated").validate({
-            // initialize the plugin
-            rules: {
-                name: {
-                    required: true
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                message: {
-                    required: true
-                },
-                subject: {
-                    required: true
-                }
-            },
-            submitHandler: function (form) {
-                // sending value with ajax request
-                $.post(
-                    $(form).attr("action"),
-                    $(form).serialize(),
-                    function (response) {
-                        $(form).parent().find(".result").append(response);
-                        $(form).find('input[type="text"]').val("");
-                        $(form).find('input[type="email"]').val("");
-                        $(form).find("textarea").val("");
-                    }
-                );
-                return false;
-            }
-        });
-    }
+    // if ($(".contact-form-validated").length) {
+    //     $(".contact-form-validated").validate({
+    //         // initialize the plugin
+    //         rules: {
+    //             name: {
+    //                 required: true
+    //             },
+    //             email: {
+    //                 required: true,
+    //                 email: true
+    //             },
+    //             message: {
+    //                 required: true
+    //             },
+    //             subject: {
+    //                 required: true
+    //             }
+    //         },
+    //         submitHandler: function (form) {
+    //             // sending value with ajax request
+    //             $.post(
+    //                 $(form).attr("action"),
+    //                 $(form).serialize(),
+    //                 function (response) {
+    //                     $(form).parent().find(".result").append(response);
+    //                     $(form).find('input[type="text"]').val("");
+    //                     $(form).find('input[type="email"]').val("");
+    //                     $(form).find("textarea").val("");
+    //                 }
+    //             );
+    //             return false;
+    //         }
+    //     });
+    // }
   
     // mailchimp form
     if ($(".mc-form").length) {
@@ -1171,3 +1171,19 @@
         $('select:not(.ignore)').niceSelect();
     }
 })(jQuery);
+
+
+
+// custom js
+
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+        event.preventDefault(); 
+
+        this.reset();
+
+        
+    });
+
+
+    
