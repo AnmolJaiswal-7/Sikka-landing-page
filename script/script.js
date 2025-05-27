@@ -1187,24 +1187,43 @@
 
 
   
-    const sidebarToggle = document.getElementById('sidebarToggle');
+    // Sidebar functionality
     const sidebar = document.getElementById('sidebar');
-    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const closeSidebarBtn = document.getElementById('closeSidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
   
+    // Open sidebar
     sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.add('open');
-      sidebarOverlay.classList.add('active');
+        sidebar.classList.add('open');
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.add('active');
+        }
     });
   
+    // Close sidebar
     closeSidebarBtn.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      sidebarOverlay.classList.remove('active');
+        sidebar.classList.remove('open');
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.remove('active');
+        }
     });
   
-    sidebarOverlay.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      sidebarOverlay.classList.remove('active');
+    // Close on overlay click
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('active');
+        });
+    }
+  
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            sidebar.classList.remove('open');
+            if (sidebarOverlay) {
+                sidebarOverlay.classList.remove('active');
+            }
+        }
     });
  
-  
