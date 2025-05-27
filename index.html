@@ -145,33 +145,30 @@
                                             src="https://aports-html.vercel.app/assets/images/resources/logo-1.png"
                                             alt=""></a>
                                 </div>
-                            </div>
-                            <i class="fa fa-bars mobile-nav__toggler"></i>
-                            <div class="main-menu__main-menu-box">
+                            </div>                                            
+
+                            <!-- Sidebar -->
+                            <div id="sidebarOverlay" class="sidebar-overlay"></div>
+                            <div class="main-menu__main-menu-box" id="sidebar">
                                 <ul class="main-menu__list">
-                                  <li><a href="index.html">Home</a></li>
-                                  <li><a href="about.html">About</a></li>
-                                  <li>
-                                    <a href="#">Pages</a>                                   
-                                  </li>
-                                  <li>
-                                    <a href="#">Appartments</a>  
-                                  </li>
-                                  <li>
-                                    <a href="#">News</a>
-                                  </li>
-                                  <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="#">Pages</a></li>
+                                    <li><a href="#">Appartments</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
                                 </ul>
-                              </div>
+                            </div>
 
                             <div class="main-menu__right">
                                 <div class="main-menu__search-btn-box">
-                                    
+
                                     <!-- Keep this as-is -->
                                     <div class="main-menu__btn-box">
                                         <button id="openModalBtn" class="thm-btn main-menu__btn">Schedule a
                                             Visit</button>
                                     </div>
+                                    <i class="fa fa-bars mobile-nav__toggler" id="sidebarToggle"></i>
 
                                     <div class="modal-overlay" id="modal">
                                         <div class="modal-content">
@@ -184,36 +181,35 @@
                                             <button class="thm-btn">Submit</button>
                                         </div>
                                     </div>
-                                
 
-                                </div>
+
+                               
                             </div>
                             <script>
                                 const sidebar = document.querySelector('.main-menu__main-menu-box');
                                 const toggleBtn = document.querySelector('.mobile-nav__toggler');
-                              
+
                                 toggleBtn.addEventListener('click', () => {
-                                  sidebar.classList.toggle('open');
+                                    sidebar.classList.toggle('open');
                                 });
-                              
+
                                 // Close sidebar on ESC
                                 document.addEventListener('keydown', (e) => {
-                                  if (e.key === 'Escape') {
-                                    sidebar.classList.remove('open');
-                                  }
+                                    if (e.key === 'Escape') {
+                                        sidebar.classList.remove('open');
+                                    }
                                 });
-                              
+
                                 // Toggle dropdowns inside sidebar on mobile
                                 document.querySelectorAll('.main-menu__list .dropdown > a').forEach(link => {
-                                  link.addEventListener('click', (e) => {
-                                    if (window.innerWidth < 1200) {
-                                      e.preventDefault(); // Stop navigation
-                                      link.parentElement.classList.toggle('open');
-                                    }
-                                  });
+                                    link.addEventListener('click', (e) => {
+                                        if (window.innerWidth < 1200) {
+                                            e.preventDefault(); // Stop navigation
+                                            link.parentElement.classList.toggle('open');
+                                        }
+                                    });
                                 });
-                              </script>      
-                        
+                            </script>
                         </div>
                     </div>
                 </nav>
@@ -1217,7 +1213,7 @@
                                             });
                                           </script> -->
 
-                                          
+
 
                                     </div>
                                 </div>

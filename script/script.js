@@ -1186,4 +1186,25 @@
     });
 
 
-    
+  
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+  
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.add('open');
+      sidebarOverlay.classList.add('active');
+    });
+  
+    closeSidebarBtn.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+  
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+ 
+  
