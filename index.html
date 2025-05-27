@@ -1588,52 +1588,53 @@
         <!-- Other Scripts -->
         <script>
             function animateCounters() {
-                $('.count-text').each(function () {
-                    const $this = $(this);
-                    const stop = parseInt($this.attr('data-stop'));
-                    const speed = parseInt($this.attr('data-speed'));
-
-                    $({ countNum: 0 }).animate(
-                        { countNum: stop },
-                        {
-                            duration: speed,
-                            easing: 'swing',
-                            step: function () {
-                                $this.text(Math.floor(this.countNum));
-                            },
-                            complete: function () {
-                                $this.text(this.countNum);
-                            },
-                        }
-                    );
-                });
-            }
-
-            // Optional: Animate only when visible in viewport
-            function isInViewport(element) {
-                const rect = element.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <=
-                    (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <=
-                    (window.innerWidth || document.documentElement.clientWidth)
+              $('.count-text').each(function () {
+                const $this = $(this);
+                const stop = parseInt($this.attr('data-stop'));
+                const speed = parseInt($this.attr('data-speed'));
+          
+                $({ countNum: 0 }).animate(
+                  { countNum: stop },
+                  {
+                    duration: speed,
+                    easing: 'swing',
+                    step: function () {
+                      $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function () {
+                      $this.text(this.countNum);
+                    },
+                  }
                 );
+              });
             }
-
+          
+            // Improved inViewport logic
+            function isInViewport(el) {
+              const rect = el.getBoundingClientRect();
+              return (
+                rect.top < window.innerHeight && rect.bottom >= 0
+              );
+            }
+          
             let countersAnimated = false;
-            $(window).on('scroll', function () {
-                if (!countersAnimated && isInViewport(document.querySelector('.counter-one__inner'))) {
-                    animateCounters();
-                    countersAnimated = true;
-                }
+          
+            function checkAndAnimateCounters() {
+              const counterSection = document.querySelector('.counter-one__inner');
+              if (!countersAnimated && counterSection && isInViewport(counterSection)) {
+                animateCounters();
+                countersAnimated = true;
+              }
+            }
+          
+            $(document).ready(function () {
+              checkAndAnimateCounters();
+              $(window).on('scroll', checkAndAnimateCounters);
             });
+          </script>
+          
 
-            // Or just run it directly if you don't care about scroll trigger
-            // $(document).ready(animateCounters);
-        </script>
-
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
         <!-- jQuery UI -->
