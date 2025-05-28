@@ -69,3 +69,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
+
+  // swiper
+  document.addEventListener('DOMContentLoaded', () => {
+    const swiperContainers = document.querySelectorAll('.thm-swiper__slider');
+  
+    swiperContainers.forEach(container => {
+      let options = {};
+  
+      try {
+        options = JSON.parse(container.getAttribute('data-swiper-options')) || {};
+      } catch (e) {
+        console.error('Failed to parse Swiper options:', e);
+      }
+  
+      // Enhance settings to match smooth continuous scroll
+      const finalOptions = Object.assign(
+        {
+          loop: true,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+          },
+          speed: 3000,
+          slidesPerView: 'auto',
+          spaceBetween: 100,
+          grabCursor: true,
+          freeMode: {
+            enabled: true,
+            momentum: false,
+          },
+        },
+        options
+      );
+  
+      new Swiper(container, finalOptions);
+    });
+  });
+  
