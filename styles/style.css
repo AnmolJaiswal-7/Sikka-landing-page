@@ -8301,6 +8301,8 @@
   }
 
   
+
+  
 }
 
 /* Hide sidebar on desktop */
@@ -8368,7 +8370,104 @@
   z-index: 10001;
 }
 
-  
+/* Hide mobile menu on desktop */
+@media screen and (min-width: 1200px) {
+  .mobile-menu,
+  .sidebar-overlay {
+    display: none !important;
+  }
+  .desktop-menu {
+    display: flex !important;
+  }
+  .mobile-nav__toggler {
+    display: none;
+  }
+}
+
+/* Hide desktop menu on mobile */
+@media screen and (max-width: 1199px) {
+  .desktop-menu {
+    display: none !important;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+
+/* apartment section */
+
+.neighborhoods__faq {
+  background-color: #fffaf7;
+  padding: 51px 30px;
+  width: 100%;
+  height: 120%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.neighborhoods__faq .accrodion {
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.accrodion-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.accrodion.active .accrodion-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.neighborhoods__faq .accrodion-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  color: #222;
+}
+
+.neighborhoods__faq .accrodion.active .accrodion-title {
+  color: #dbb27c;
+}
+
+.neighborhoods__faq .accrodion.active .accrodion-title h4{
+  color: #dbb27c;
+}
+
+.neighborhoods__faq .accrodion-title::after {
+  content: "\f107"; /* Font Awesome angle-down */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  transition: transform 0.3s ease;
+  font-size: 16px;
+}
+
+.neighborhoods__faq .accrodion.active .accrodion-title::after {
+  transform: rotate(180deg);
+}
+
+.neighborhoods__faq .accrodion-content {
+  display: none;
+  padding-top: 15px;
+  font-size: 15px;
+  color: #777;
+  line-height: 1.6;
+}
+
+.neighborhoods__faq .accrodion.active .accrodion-content {
+  display: block;
+}
+
   
   
   /*--------------------------------------------------------------

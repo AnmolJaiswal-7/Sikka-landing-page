@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+
     <title>Document</title>
 
     <!-- Bootstrap CSS -->
@@ -45,6 +42,7 @@
     <!-- to remove -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
     <!-- Tiny Slider -->
@@ -92,12 +90,15 @@
     <link rel="stylesheet" href="styles/responsive.css">
 </head>
 
-<body>
+<body class="custom-cursor">
 
-    <body class="custom-cursor">
+    
 
         <div class="custom-cursor__cursor"></div>
         <div class="custom-cursor__cursor-two"></div>
+
+       
+
 
         <div class="page-wrapper">
             <header class="main-header">
@@ -118,7 +119,7 @@
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="text">
-                                        <p><a href="mailto:needhelp@company.com">needhelp@company.com</a></p>
+                                        <p><a href="#">needhelp@company.com</a></p>
                                     </div>
                                 </li>
                             </ul>
@@ -141,27 +142,42 @@
                         <div class="main-menu__wrapper-inner">
                             <div class="main-menu__left">
                                 <div class="main-menu__logo">
-                                    <a href="index.html"><img
+                                    <a href="#"><img
                                             src="https://aports-html.vercel.app/assets/images/resources/logo-1.png"
                                             alt=""></a>
                                 </div>
-                            </div>                                            
+                            </div>
 
                             <!-- Sidebar Overlay -->
-                            <div id="sidebarOverlay" class="sidebar-overlay"></div>
-
-                            <!-- Sidebar -->
-                            <div class="main-menu__main-menu-box" id="sidebar">
-                                <button id="closeSidebar" class="close-sidebar-btn">&times;</button>
+                            <!-- Sidebar Overlay -->
+                            <!-- Desktop Nav -->
+                            <div class="main-menu__main-menu-box desktop-menu">
                                 <ul class="main-menu__list">
-                                  <li><a href="index.html">Home</a></li>
-                                  <li><a href="about.html">About</a></li>
-                                  <li><a href="#">Pages</a></li>
-                                  <li><a href="#">Appartments</a></li>
-                                  <li><a href="#">News</a></li>
-                                  <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Pages</a></li>
+                                    <li><a href="#">Appartments</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
-                              </div>
+                            </div>
+
+                            <!-- Sidebar Overlay for Mobile -->
+                            <div id="sidebarOverlay" class="sidebar-overlay">
+                                <div class="main-menu__main-menu-box mobile-menu" id="sidebar">
+                                    <button id="closeSidebar" class="close-sidebar-btn">&times;</button>
+                                    <ul class="main-menu__list">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Pages</a></li>
+                                        <li><a href="#">Appartments</a></li>
+                                        <li><a href="#">News</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
 
                             <div class="main-menu__right">
                                 <div class="main-menu__search-btn-box">
@@ -177,60 +193,63 @@
                                         <div class="modal-content">
                                             <span class="close-modal" id="closeModalBtn">&times;</span>
                                             <h3>Schedule a Visit</h3>
-                                            <input type="text" placeholder="Name">
-                                            <input type="email" placeholder="Email">
-                                            <input type="tel" placeholder="Phone">
-                                            <textarea placeholder="Message"></textarea>
-                                            <button class="thm-btn">Submit</button>
+                                            <form id="modal-form">
+                                                <input type="text" placeholder="Name" name="name" required>
+                                                <input type="email" placeholder="Email" name="email" required>
+                                                <input type="tel" placeholder="Phone" name="phone" required>
+                                                <textarea placeholder="Message" name="message" required></textarea>
+                                                <button class="thm-btn" type="submit">Submit</button>
+                                            </form>
                                         </div>
                                     </div>
 
 
-                               
-                            </div>
-                            <script>
-                                // Sidebar functionality
-                                const sidebar = document.getElementById('sidebar');
-                                const sidebarToggle = document.getElementById('sidebarToggle');
-                                const closeSidebarBtn = document.getElementById('closeSidebar');
-                                const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-                                // Open sidebar
-                                sidebarToggle.addEventListener('click', () => {
-                                    sidebar.classList.add('open');
-                                    if (sidebarOverlay) {
-                                        sidebarOverlay.classList.add('active');
-                                    }
-                                });
 
-                                // Close sidebar
-                                closeSidebarBtn.addEventListener('click', () => {
-                                    sidebar.classList.remove('open');
-                                    if (sidebarOverlay) {
-                                        sidebarOverlay.classList.remove('active');
-                                    }
-                                });
+                                </div>
+                                <script>
+                                    // Sidebar functionality
+                                    const sidebar = document.getElementById('sidebar');
+                                    const sidebarToggle = document.getElementById('sidebarToggle');
+                                    const closeSidebarBtn = document.getElementById('closeSidebar');
+                                    const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-                                // Close on overlay click
-                                if (sidebarOverlay) {
-                                    sidebarOverlay.addEventListener('click', () => {
-                                        sidebar.classList.remove('open');
-                                        sidebarOverlay.classList.remove('active');
+                                    // Open sidebar
+                                    sidebarToggle.addEventListener('click', () => {
+                                        sidebar.classList.add('open');
+                                        if (sidebarOverlay) {
+                                            sidebarOverlay.classList.add('active');
+                                        }
                                     });
-                                }
 
-                                // Close on ESC key
-                                document.addEventListener('keydown', (e) => {
-                                    if (e.key === 'Escape') {
+                                    // Close sidebar
+                                    closeSidebarBtn.addEventListener('click', () => {
                                         sidebar.classList.remove('open');
                                         if (sidebarOverlay) {
                                             sidebarOverlay.classList.remove('active');
                                         }
+                                    });
+
+                                    // Close on overlay click
+                                    if (sidebarOverlay) {
+                                        sidebarOverlay.addEventListener('click', () => {
+                                            sidebar.classList.remove('open');
+                                            sidebarOverlay.classList.remove('active');
+                                        });
                                     }
-                                });
-                            </script>
+
+                                    // Close on ESC key
+                                    document.addEventListener('keydown', (e) => {
+                                        if (e.key === 'Escape') {
+                                            sidebar.classList.remove('open');
+                                            if (sidebarOverlay) {
+                                                sidebarOverlay.classList.remove('active');
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
                         </div>
-                    </div>
                 </nav>
             </header>
 
@@ -366,7 +385,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="about.html" class="thm-btn about-one__btn">More Detail</a>
+                                <a href="#" class="thm-btn about-one__btn">More Detail</a>
                             </div>
                         </div>
                     </div>
@@ -463,7 +482,7 @@
                                 <p class="feature-one__text">Man braid hell of edison bulb four brunch subway <br> tile
                                     authentic, chillwave put a bird on it church-key <br> try-hard ramps heirloom.</p>
                                 <div class="feature-one__video-link">
-                                    <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+                                    <a href="#" class="video-popup">
                                         <div class="feature-one__video-icon">
                                             <span class="fa fa-play"></span>
                                             <i class="ripple"></i>
@@ -508,12 +527,12 @@
                                                             d="M80-120v-720h400v160h400v560H80Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h320v-400H480v80h80v80h-80v80h80v80h-80v80Zm160-240v-80h80v80h-80Zm0 160v-80h80v80h-80Z" />
                                                     </svg>
                                                 </div>
-                                                <h3 class="feature-one__title"><a href="services.html">Smart living</a>
+                                                <h3 class="feature-one__title"><a href="#">Smart living</a>
                                                 </h3>
                                                 <p class="feature-one__text">When nothing prevents our being
                                                     able to we like best, every pleasure to be welcomed & every.</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="services.html"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -531,13 +550,13 @@
                                                             d="M159-169q-50 0-84.5-35T40-289v-240q0-33 23.5-56.5T120-609h200v-200h200q50 0 85 35t35 85v160h39v-47q0-16 6.5-31t17.5-26l77-76 179 340H759q-33 0-56.5-23.5T679-449h-40v70q20 17 30.5 40.5T680-289q0 50-35 85t-85 35q-38 0-69-22t-45-58H273q-14 36-45 58t-69 22Zm0-80q17 0 29-11.5t12-28.5q0-17-11.5-28.5T160-329q-17 0-28.5 11.5T120-289q0 17 11 28.5t28 11.5Zm401 0q17 0 28.5-11.5T600-289q0-17-11.5-28.5T560-329q-17 0-28.5 11.5T520-289q0 17 11.5 28.5T560-249Zm-240-80v-200H120v127q10-4 19.5-5.5T160-409q38 0 69 22t44 58h47Zm80 0h46q13-36 44.5-58t69.5-22v-40H400v120Zm427-120-67-127v127h67Zm-427-80h160v-160q0-17-11.5-28.5T520-729H400v200Zm-80 200v-80 7-127 200Zm80 0v-120 120Z" />
                                                     </svg>
                                                 </div>
-                                                <h3 class="feature-one__title"><a href="services.html">Eco
+                                                <h3 class="feature-one__title"><a href="#">Eco
                                                         construction</a>
                                                 </h3>
                                                 <p class="feature-one__text">When nothing prevents our being
                                                     able to we like best, every pleasure to be welcomed & every.</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="services.html"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -555,12 +574,12 @@
                                                             d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q152 0 263.5 98T876-538q-20-10-41.5-15.5T790-560q-19-73-68.5-130T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q11 0 20.5 5.5T595-459q-17 27-26 57t-9 62q0 63 32.5 117T659-122q-41 20-86 31t-93 11Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm340 82q-7 0-12-4t-7-10q-11-35-31-65t-43-59q-21-26-34-57t-13-65q0-58 41-99t99-41q58 0 99 41t41 99q0 34-13.5 64.5T873-218q-23 29-43 59t-31 65q-2 6-7 10t-12 4Zm0-113q10-17 22-31.5t23-29.5q14-19 24.5-40.5T860-340q0-33-23.5-56.5T780-420q-33 0-56.5 23.5T700-340q0 24 10.5 45.5T735-254q12 15 23.5 29.5T780-193Zm0-97q-21 0-35.5-14.5T730-340q0-21 14.5-35.5T780-390q21 0 35.5 14.5T830-340q0 21-14.5 35.5T780-290Z" />
                                                     </svg>
                                                 </div>
-                                                <h3 class="feature-one__title"><a href="services.html">Attractive
+                                                <h3 class="feature-one__title"><a href="#">Attractive
                                                         location</a></h3>
                                                 <p class="feature-one__text">When nothing prevents our being
                                                     able to we like best, every pleasure to be welcomed & every.</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="services.html"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -578,13 +597,13 @@
                                                             d="m880-194-80-80v-326H474l-74-74v-86h-86l-80-80h246v160h400v486ZM820-28l-94-92H80v-648l-52-52 56-56L876-84l-56 56ZM160-200h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h166l-80-80h-86v80Zm240-240h-80v-80h80v80Z" />
                                                     </svg>
                                                 </div>
-                                                <h3 class="feature-one__title"><a href="services.html">Modern
+                                                <h3 class="feature-one__title"><a href="#">Modern
                                                         technology</a>
                                                 </h3>
                                                 <p class="feature-one__text">When nothing prevents our being
                                                     able to we like best, every pleasure to be welcomed & every.</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="services.html"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -617,7 +636,7 @@
                     <div class="floor-plan__main-tab-box tabs-box">
                         <ul class="tab-buttons clearfix list-unstyled">
                             <li data-tab="#penthouse" class="tab-btn active-btn"><span>Penthouse</span></li>
-                            <li data-tab="#stuido" class="tab-btn"><span>Stuido</span></li>
+                            <li data-tab="#studio" class="tab-btn"><span>Stuido</span></li>
                             <li data-tab="#duplex" class="tab-btn"><span>Duplex</span></li>
                         </ul>
                         <div class="tabs-content">
@@ -659,13 +678,13 @@
                                 </div>
                             </div>
                             <!--tab-->
-                            <div class="tab " id="stuido">
+                            <div class="tab " id="studio">
                                 <div class="floor-plan__tab-content-inner">
                                     <div class="floor-plan__tab-content-left">
                                         <ul class="list-unstyled floor-plan__tab-content-details">
                                             <li>
                                                 <p>Total area</p>
-                                                <span>2800 Sq. Ft</span>
+                                                <span>280 Sq. Ft</span>
                                             </li>
                                             <li>
                                                 <p>Floor no.</p>
@@ -702,7 +721,7 @@
                                         <ul class="list-unstyled floor-plan__tab-content-details">
                                             <li>
                                                 <p>Total area</p>
-                                                <span>2800 Sq. Ft</span>
+                                                <span>800 Sq. Ft</span>
                                             </li>
                                             <li>
                                                 <p>Floor no.</p>
@@ -734,6 +753,43 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const tabButtons = document.querySelectorAll(".floor-plan__main-tab-box .tab-btn");
+                            const tabContents = document.querySelectorAll(".floor-plan__main-tab-box .tab");
+
+                            tabButtons.forEach((button) => {
+                                button.addEventListener("click", function () {
+                                    // Remove active from all buttons
+                                    tabButtons.forEach((btn) => btn.classList.remove("active-btn"));
+
+                                    // Hide all tab contents
+                                    tabContents.forEach((tab) => {
+                                        tab.classList.remove("active-tab");
+                                        tab.style.display = "none";
+                                    });
+
+                                    // Add active to clicked button
+                                    this.classList.add("active-btn");
+
+                                    // Show corresponding tab content
+                                    const targetId = this.getAttribute("data-tab");
+                                    const targetTab = document.querySelector(targetId);
+                                    if (targetTab) {
+                                        targetTab.classList.add("active-tab");
+                                        targetTab.style.display = "block";
+                                    }
+                                });
+                            });
+
+                            // Initial state: show active-tab content (e.g., Penthouse)
+                            document.querySelectorAll(".tab").forEach((tab) => {
+                                tab.style.display = tab.classList.contains("active-tab") ? "block" : "none";
+                            });
+                        });
+                    </script>
+
+
                 </div>
             </section>
             <!--Floor Plan End-->
@@ -753,17 +809,15 @@
                                     <img src="https://aports-html.vercel.app/assets/images/apartment/apartment-1-1.jpg"
                                         alt="">
                                     <div class="apartments-one__title-box">
-                                        <h3 class="apartments-one__title"><a href="apartment-details.html">Studio
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__title"><a href="#">Studio apartment</a></h3>
                                     </div>
                                     <div class="apartments-one__hover">
-                                        <h3 class="apartments-one__hover-title"><a href="apartment-details.html">Studio
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__hover-title"><a href="#">Studio apartment</a></h3>
                                         <p class="apartments-one__hover-text">There are many type of variations <br>
                                             pass
                                             not available</p>
                                         <div class="apartments-one__arrow">
-                                            <a href="apartment-details.html">
+                                            <a href="#">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="30px"
                                                     viewBox="0 -960 960 960" width="30px" fill="#ceae92">
                                                     <path
@@ -783,17 +837,15 @@
                                     <img src="https://aports-html.vercel.app/assets/images/apartment/apartment-1-2.jpg"
                                         alt="">
                                     <div class="apartments-one__title-box">
-                                        <h3 class="apartments-one__title"><a href="apartment-details.html">Luxury
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__title"><a href="#">Luxury apartment</a></h3>
                                     </div>
                                     <div class="apartments-one__hover">
-                                        <h3 class="apartments-one__hover-title"><a href="apartment-details.html">Luxury
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__hover-title"><a href="#">Luxury apartment</a></h3>
                                         <p class="apartments-one__hover-text">There are many type of variations <br>
                                             pass
                                             not available</p>
                                         <div class="apartments-one__arrow">
-                                            <a href="apartment-details.html">
+                                            <a href="#">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="30px"
                                                     viewBox="0 -960 960 960" width="30px" fill="#ceae92">
                                                     <path
@@ -813,17 +865,15 @@
                                     <img src="https://aports-html.vercel.app/assets/images/apartment/apartment-1-3.jpg"
                                         alt="">
                                     <div class="apartments-one__title-box">
-                                        <h3 class="apartments-one__title"><a href="apartment-details.html">Deluxe
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__title"><a href="#">Deluxe apartment</a></h3>
                                     </div>
                                     <div class="apartments-one__hover">
-                                        <h3 class="apartments-one__hover-title"><a href="apartment-details.html">Deluxe
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__hover-title"><a href="#">Deluxe apartment</a></h3>
                                         <p class="apartments-one__hover-text">There are many type of variations <br>
                                             pass
                                             not available</p>
                                         <div class="apartments-one__arrow">
-                                            <a href="apartment-details.html">
+                                            <a href="#">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="30px"
                                                     viewBox="0 -960 960 960" width="30px" fill="#ceae92">
                                                     <path
@@ -843,17 +893,15 @@
                                     <img src="https://aports-html.vercel.app/assets/images/apartment/apartment-1-4.jpg"
                                         alt="">
                                     <div class="apartments-one__title-box">
-                                        <h3 class="apartments-one__title"><a href="apartment-details.html">Modern
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__title"><a href="#">Modern apartment</a></h3>
                                     </div>
                                     <div class="apartments-one__hover">
-                                        <h3 class="apartments-one__hover-title"><a href="apartment-details.html">Modern
-                                                apartment</a></h3>
+                                        <h3 class="apartments-one__hover-title"><a href="#">Modern apartment</a></h3>
                                         <p class="apartments-one__hover-text">There are many type of variations <br>
                                             pass
                                             not available</p>
                                         <div class="apartments-one__arrow">
-                                            <a href="apartment-details.html">
+                                            <a href="#">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="30px"
                                                     viewBox="0 -960 960 960" width="30px" fill="#ceae92">
                                                     <path
@@ -949,6 +997,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <script>
+                               
+                              </script>
+                              
+                              
+                              
                         </div>
                         <div class="col-xl-8 col-lg-7">
                             <div class="neighborhoods__right">
@@ -1141,7 +1195,7 @@
                                         </div>
                                         <div class="content">
                                             <p>Have any question?</p>
-                                            <h4> <span>Free</span> <a href="tel:230009850">+23 (000)-9850</a></h4>
+                                            <h4> <span>Free</span> <a href="#">+23 (000)-9850</a></h4>
                                         </div>
                                     </li>
                                     <li>
@@ -1150,7 +1204,7 @@
                                         </div>
                                         <div class="content">
                                             <p>Write email</p>
-                                            <h4><a href="mailto:needhelp@company.com">needhelp@company.com</a></h4>
+                                            <h4><a href="#">needhelp@company.com</a></h4>
                                         </div>
                                     </li>
                                 </ul>
@@ -1194,6 +1248,48 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <script>
+                                            const contactForm = document.getElementById("contact-form");
+                                            const modalForm = document.getElementById("modal-form");
+
+                                            async function submitForm(form) {
+                                                const formData = {
+                                                    name: form.name.value,
+                                                    email: form.email.value,
+                                                    phone: form.phone.value,
+                                                    message: form.message.value,
+                                                };
+
+                                                try {
+                                                    await fetch('https://script.google.com/macros/s/AKfycbxbeme4ycTMPIANx9HW4HMTVDo1ykqJGizc10RfvcuUoqcJ_DJzO3tDgJPkltYvUM98/exec', {
+                                                        method: 'POST',
+                                                        mode: 'no-cors',
+                                                        headers: {
+                                                            'Content-Type': 'application/json'
+                                                        },
+                                                        body: JSON.stringify(formData),
+                                                    });
+
+                                                    alert("Message sent successfully!");
+                                                    form.reset();
+                                                } catch (error) {
+                                                    console.error("Error!", error);
+                                                    alert("Failed to send message. Please try again later.");
+                                                }
+                                            }
+
+                                            contactForm.addEventListener("submit", function (e) {
+                                                e.preventDefault();
+                                                submitForm(contactForm);
+                                            });
+
+                                            modalForm.addEventListener("submit", function (e) {
+                                                e.preventDefault();
+                                                submitForm(modalForm);
+                                            });
+                                        </script>
+
+
 
                                         <!-- <script>
                                             document.getElementById("contact-form").addEventListener("submit", async function (e) {
@@ -1263,14 +1359,14 @@
                                     </div>
                                     <div class="news-one__content">
                                         <p class="news-one__author">by John Smith</p>
-                                        <h3 class="news-one__title"><a href="news-details.html">Let's understand the
-                                                different types of luxury spaces</a></h3>
+                                        <h3 class="news-one__title"><a href="#">Let's understand the different types of
+                                                luxury spaces</a></h3>
                                     </div>
                                     <div class="news-one__bottom">
-                                        <a href="news-details.html" class="news-one__more"> <i
-                                                class="fa fa-arrow-right"></i> Read More</a>
-                                        <a href="news-details.html" class="news-one__comments"> <i
-                                                class="fas fa-comments"></i> 2 Comments</a>
+                                        <a href="#" class="news-one__more"> <i class="fa fa-arrow-right"></i> Read
+                                            More</a>
+                                        <a href="#" class="news-one__comments"> <i class="fas fa-comments"></i> 2
+                                            Comments</a>
                                     </div>
                                 </div>
                             </div>
@@ -1288,14 +1384,14 @@
                                     </div>
                                     <div class="news-one__content">
                                         <p class="news-one__author">by John Smith</p>
-                                        <h3 class="news-one__title"><a href="news-details.html">Lorem Ipsum has been the
-                                                industry's standard dummy</a></h3>
+                                        <h3 class="news-one__title"><a href="#">Lorem Ipsum has been the industry's
+                                                standard dummy</a></h3>
                                     </div>
                                     <div class="news-one__bottom">
-                                        <a href="news-details.html" class="news-one__more"> <i
-                                                class="fa fa-arrow-right"></i> Read More</a>
-                                        <a href="news-details.html" class="news-one__comments"> <i
-                                                class="fas fa-comments"></i> 2 Comments</a>
+                                        <a href="#" class="news-one__more"> <i class="fa fa-arrow-right"></i> Read
+                                            More</a>
+                                        <a href="#" class="news-one__comments"> <i class="fas fa-comments"></i> 2
+                                            Comments</a>
                                     </div>
                                 </div>
                             </div>
@@ -1313,14 +1409,14 @@
                                     </div>
                                     <div class="news-one__content">
                                         <p class="news-one__author">by John Smith</p>
-                                        <h3 class="news-one__title"><a href="news-details.html">The point of using Lorem
-                                                Ipsum is that it has a more</a></h3>
+                                        <h3 class="news-one__title"><a href="#">The point of using Lorem Ipsum is that
+                                                it has a more</a></h3>
                                     </div>
                                     <div class="news-one__bottom">
-                                        <a href="news-details.html" class="news-one__more"> <i
-                                                class="fa fa-arrow-right"></i> Read More</a>
-                                        <a href="news-details.html" class="news-one__comments"> <i
-                                                class="fas fa-comments"></i> 2 Comments</a>
+                                        <a href="#" class="news-one__more"> <i class="fa fa-arrow-right"></i> Read
+                                            More</a>
+                                        <a href="#" class="news-one__comments"> <i class="fas fa-comments"></i> 2
+                                            Comments</a>
                                     </div>
                                 </div>
                             </div>
@@ -1467,11 +1563,11 @@
                                             <h3 class="footer-widget__title">Explore</h3>
                                         </div>
                                         <ul class="footer-widget__Explore-list list-unstyled">
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="about.html">Custom Widget</a></li>
-                                            <li><a href="about.html">Shortcodes</a></li>
-                                            <li><a href="about.html">Blank page</a></li>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                            <li><a href="#">Custom Widget</a></li>
+                                            <li><a href="#">Shortcodes</a></li>
+                                            <li><a href="#">Blank page</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1496,7 +1592,7 @@
                                                     <span class="fas fa-phone-alt"></span>
                                                 </div>
                                                 <div class="text">
-                                                    <p><a href="tel:23425446680">+23 425 4466 80</a></p>
+                                                    <p><a href="#">+23 425 4466 80</a></p>
                                                 </div>
                                             </li>
                                             <li>
@@ -1512,7 +1608,7 @@
                                                     <span class="fas fa-envelope"></span>
                                                 </div>
                                                 <div class="text">
-                                                    <p><a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                                    <p><a href="#">needhelp@company.com</a>
                                                     </p>
                                                 </div>
                                             </li>
@@ -1550,7 +1646,7 @@
                 <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
                 <div class="logo-box">
-                    <a href="index.html" aria-label="logo image"><img
+                    <a href="#" aria-label="logo image"><img
                             src="https://aports-html.vercel.app/assets/images/resources/logo-3.png" width="122"
                             alt="" /></a>
                 </div>
@@ -1561,11 +1657,11 @@
                 <ul class="mobile-nav__contact list-unstyled">
                     <li>
                         <i class="fa fa-envelope"></i>
-                        <a href="mailto:needhelp@packageName__.com">needhelp@agrion.com</a>
+                        <a href="#">needhelp@agrion.com</a>
                     </li>
                     <li>
                         <i class="fa fa-phone-alt"></i>
-                        <a href="tel:666-888-0000">666 888 0000</a>
+                        <a href="#">666 888 0000</a>
                     </li>
                 </ul><!-- /.mobile-nav__contact -->
                 <div class="mobile-nav__top">
@@ -1607,53 +1703,53 @@
         <!-- Other Scripts -->
         <script>
             function animateCounters() {
-              $('.count-text').each(function () {
-                const $this = $(this);
-                const stop = parseInt($this.attr('data-stop'));
-                const speed = parseInt($this.attr('data-speed'));
-          
-                $({ countNum: 0 }).animate(
-                  { countNum: stop },
-                  {
-                    duration: speed,
-                    easing: 'swing',
-                    step: function () {
-                      $this.text(Math.floor(this.countNum));
-                    },
-                    complete: function () {
-                      $this.text(this.countNum);
-                    },
-                  }
-                );
-              });
+                $('.count-text').each(function () {
+                    const $this = $(this);
+                    const stop = parseInt($this.attr('data-stop'));
+                    const speed = parseInt($this.attr('data-speed'));
+
+                    $({ countNum: 0 }).animate(
+                        { countNum: stop },
+                        {
+                            duration: speed,
+                            easing: 'swing',
+                            step: function () {
+                                $this.text(Math.floor(this.countNum));
+                            },
+                            complete: function () {
+                                $this.text(this.countNum);
+                            },
+                        }
+                    );
+                });
             }
-          
+
             // Improved inViewport logic
             function isInViewport(el) {
-              const rect = el.getBoundingClientRect();
-              return (
-                rect.top < window.innerHeight && rect.bottom >= 0
-              );
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top < window.innerHeight && rect.bottom >= 0
+                );
             }
-          
-            let countersAnimated = false;
-          
-            function checkAndAnimateCounters() {
-              const counterSection = document.querySelector('.counter-one__inner');
-              if (!countersAnimated && counterSection && isInViewport(counterSection)) {
-                animateCounters();
-                countersAnimated = true;
-              }
-            }
-          
-            $(document).ready(function () {
-              checkAndAnimateCounters();
-              $(window).on('scroll', checkAndAnimateCounters);
-            });
-          </script>
-          
 
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            let countersAnimated = false;
+
+            function checkAndAnimateCounters() {
+                const counterSection = document.querySelector('.counter-one__inner');
+                if (!countersAnimated && counterSection && isInViewport(counterSection)) {
+                    animateCounters();
+                    countersAnimated = true;
+                }
+            }
+
+            $(document).ready(function () {
+                checkAndAnimateCounters();
+                $(window).on('scroll', checkAndAnimateCounters);
+            });
+        </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
         <!-- jQuery UI -->
@@ -1773,10 +1869,11 @@
         <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
 
         <!-- template js -->
+        
+        
+        
         <script src="script/script.js"></script>
-    </body>
-
-
+        <script src="script/DomContent.js"></script>
 </body>
 
 </html>
