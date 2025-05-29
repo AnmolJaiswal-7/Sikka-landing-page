@@ -69,41 +69,54 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
-
-  // swiper
-  document.addEventListener('DOMContentLoaded', () => {
-    const swiperContainers = document.querySelectorAll('.thm-swiper__slider');
+  document.addEventListener("DOMContentLoaded", function () {
+    const lightbox = document.getElementById("swiperLightbox");
+    const lightboxImage = document.querySelector(".swiper-lightbox-image");
+    const lightboxClose = document.querySelector(".swiper-lightbox-close");
+    const lightboxPrev = document.querySelector(".swiper-lightbox-prev");
+    const lightboxNext = document.querySelector(".swiper-lightbox-next");
+    const lightboxCounter = document.querySelector(".swiper-lightbox-counter");
   
-    swiperContainers.forEach(container => {
-      let options = {};
+    const swiperSlides = document.querySelectorAll(".swiper-slide-1 img");
+    let currentIndex = 0;
   
-      try {
-        options = JSON.parse(container.getAttribute('data-swiper-options')) || {};
-      } catch (e) {
-        console.error('Failed to parse Swiper options:', e);
+    swiperSlides.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.style.display = "flex";
+      });
+    });
+  
+    function updateLightbox() {
+      lightboxImage.src = swiperSlides[currentIndex].src;
+      lightboxCounter.textContent = `${currentIndex + 1} of ${swiperSlides.length}`;
+    }
+  
+    lightboxClose.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  
+    lightboxPrev.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + swiperSlides.length) % swiperSlides.length;
+      updateLightbox();
+    });
+  
+    lightboxNext.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % swiperSlides.length;
+      updateLightbox();
+    });
+  
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
       }
+    });
   
-      // Enhance settings to match smooth continuous scroll
-      const finalOptions = Object.assign(
-        {
-          loop: true,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-          },
-          speed: 3000,
-          slidesPerView: 'auto',
-          spaceBetween: 100,
-          grabCursor: true,
-          freeMode: {
-            enabled: true,
-            momentum: false,
-          },
-        },
-        options
-      );
-  
-      new Swiper(container, finalOptions);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") lightbox.style.display = "none";
+      if (e.key === "ArrowRight") lightboxNext.click();
+      if (e.key === "ArrowLeft") lightboxPrev.click();
     });
   });
   
