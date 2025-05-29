@@ -49,7 +49,7 @@
 
     // Main Slider
     if ($(".main-slider").length) {
-      const mainSlider = new Swiper(".main-slider .swiper-container", {
+      const mainSlider = new Swiper(".main-slider .swiper", {
         slidesPerView: 1,
         loop: true,
         effect: "fade",
