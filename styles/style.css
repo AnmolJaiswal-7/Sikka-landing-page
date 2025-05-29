@@ -2791,7 +2791,7 @@
   }
   
   .floor-plan__main-tab-box .tabs-content .tab.active-tab {
-    display: block;
+    display: flex;
     margin-top: 0px;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
@@ -4405,7 +4405,7 @@
   }
   
   .measurement__main-tab-box .tabs-content .tab.active-tab {
-    display: block;
+    display: flex;
     margin-top: 0px;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
@@ -5552,7 +5552,7 @@
   }
   
   .floor-plan-two__main-tab-box .tabs-content .tab.active-tab {
-    display: block;
+    display: flex;
     margin-top: 0px;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
@@ -5858,7 +5858,7 @@
   }
   
   .team-one__main-tab-box .tabs-content .tab.active-tab {
-    display: block;
+    display: flex;
     margin-top: 0px;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
@@ -7838,7 +7838,7 @@
   
   .faq-page__tab-box .tabs-content .tab {
     position: relative;
-    display: none;
+    display: flex;
     -webkit-transform: translateY(35px);
     -ms-transform: translateY(35px);
     transform: translateY(35px);
@@ -7851,7 +7851,7 @@
   }
   
   .faq-page__tab-box .tabs-content .tab.active-tab {
-    display: block;
+    display: flex;
     margin-top: 0px;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);

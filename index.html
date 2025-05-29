@@ -157,14 +157,37 @@
                             <!-- Desktop Nav -->
                             <div class="main-menu__main-menu-box desktop-menu">
                                 <ul class="main-menu__list">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Pages</a></li>
-                                    <li><a href="#">Appartments</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#features">features</a></li>
+                                    <li><a href="#apartment">Appartments</a></li>
+                                    <li><a href="#neighborhoods">Neighborhoods</a></li>
+                                    <li><a href="#contact">Contact</a></li>
                                 </ul>
                             </div>
+
+                            <script>
+                                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                                  anchor.addEventListener('click', function (e) {
+                                    const targetId = this.getAttribute('href').slice(1);
+                                    const targetElement = document.getElementById(targetId);
+                              
+                                    if (targetElement) {
+                                      e.preventDefault();
+                              
+                                      const headerOffset = 80; // change based on your navbar height
+                                      const elementPosition = targetElement.getBoundingClientRect().top;
+                                      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                              
+                                      window.scrollTo({
+                                        top: offsetPosition,
+                                        behavior: "smooth"
+                                      });
+                                    }
+                                  });
+                                });
+                              </script>
+                              
 
                             <!-- Sidebar Overlay for Mobile -->
                             <div id="sidebarOverlay" class="sidebar-overlay">
@@ -176,12 +199,12 @@
                                                 alt="" style="width: 70px;"></a>
                                     </div>
                                     <ul class="main-menu__list">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Pages</a></li>
-                                        <li><a href="#">Appartments</a></li>
-                                        <li><a href="#">News</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#features">features</a></li>
+                                    <li><a href="#apartment">Appartments</a></li>
+                                    <li><a href="#neighborhoods">Neighborhoods</a></li>
+                                    <li><a href="#contact">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -197,7 +220,7 @@
                                     <!-- Keep this as-is -->
                                     <div class="main-menu__btn-box">
                                         <button id="openModalBtn" style="border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;" class="thm-btn main-menu__btn">Schedule a
+    border-top-right-radius: 30px;" class="thm-btn main-menu__btn open-schedule-form">Schedule a
                                             Visit</button>
                                     </div>
                                     <i class="fa fa-bars mobile-nav__toggler" id="sidebarToggle"></i>
@@ -271,7 +294,7 @@
             </div><!-- /.stricky-header -->
 
             <!--Main Slider Start-->
-            <section class="main-slider clearfix">
+            <section class="main-slider clearfix" id="home">
                 <div class="swiper thm-swiper__slider">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -337,7 +360,7 @@
             <!--Main Slider End-->
 
             <!--About One Start-->
-            <section class="about-one">
+            <section class="about-one" id="about">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-6">
@@ -367,7 +390,7 @@
                                     <span class="section-title__tagline">the building overview</span>
                                     <h2 class="section-title__title">Modern & premium apartments</h2>
                                 </div>
-                                <p class="about-one__text">Discover a harmonious blend of nature and modern living at Sikka Kimaya Greens, nestled in the serene surroundings of Sahastradhara Road, Dehradun. Designed by global architects Broadway Malyan, this ready-to-move residential haven offers spacious 1, 2, 3, and 4 BHK apartments with unmatched views of the Himalayan foothills. Experience life where fresh mountain air meets contemporary comforts.
+                                <p class="about-one__text">With over 30 years of experience in the Delhi-NCR real estate market, Sikka Group has delivered thousands of homes known for quality, timely possession, and customer satisfaction. Sikka Kaamya Greens reflects the builder’s commitment to creating living spaces that combine innovation, sustainability, and trust.
                                 </p>
                                 <ul class="list-unstyled about-one__points">
                                     <li>
@@ -395,7 +418,9 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="#" class="thm-btn about-one__btn">More Detail</a>
+                                <button id="openModalBtn" style="border-bottom-left-radius: 30px;
+                                border-top-right-radius: 30px;" class="thm-btn main-menu__btn open-schedule-form">Schedule a
+                                                                        Visit</button>
                             </div>
                         </div>
                     </div>
@@ -472,7 +497,7 @@
             <!--Counter One End-->
 
             <!--Feature One Start-->
-            <section class="feature-one">
+            <section class="feature-one" id="features">
                 <div class="feature-one__bg-box">
                     <div class="feature-one__bg"
                         style="background-image: url(https://aports-html.vercel.app/assets/images/backgrounds/feature-one-bg.jpg);">
@@ -489,10 +514,9 @@
                                     <span class="section-title__tagline">Main features</span>
                                     <h2 class="section-title__title">Our main property features</h2>
                                 </div>
-                                <p class="feature-one__text">Man braid hell of edison bulb four brunch subway <br> tile
-                                    authentic, chillwave put a bird on it church-key <br> try-hard ramps heirloom.</p>
+                                <p class="feature-one__text">Sikka Kaamya Greens is a thoughtfully designed ready-to-move residential project spanning 6 acres with 75% green open areas. Located just 500 meters from the upcoming metro station, it offers spacious 2, 3 & 4 BHK apartments that blend comfort, luxury, and connectivity. Whether you’re looking for your dream home or a lucrative investment, Kaamya Greens promises an elevated lifestyle in a secure gated community.</p>
                                 <div class="feature-one__video-link">
-                                    <a href="#" class="video-popup">
+                                    <a href="https://youtu.be/PQ6vYZSaWaE?si=eL2BzTdde-TjV8d_" class="video-popup">
                                         <div class="feature-one__video-icon">
                                             <span class="fa fa-play"></span>
                                             <i class="ripple"></i>
@@ -539,10 +563,9 @@
                                                 </div>
                                                 <h3 class="feature-one__title"><a href="#">Smart living</a>
                                                 </h3>
-                                                <p class="feature-one__text">When nothing prevents our being
-                                                    able to we like best, every pleasure to be welcomed & every.</p>
+                                                <p class="feature-one__text">•	75% open green spaces with jogging and cycling tracks</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#" class="open-schedule-form"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -563,10 +586,9 @@
                                                 <h3 class="feature-one__title"><a href="#">Eco
                                                         construction</a>
                                                 </h3>
-                                                <p class="feature-one__text">When nothing prevents our being
-                                                    able to we like best, every pleasure to be welcomed & every.</p>
+                                                <p class="feature-one__text">•	24x7 water supply and power backup</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#" class="open-schedule-form"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -586,10 +608,9 @@
                                                 </div>
                                                 <h3 class="feature-one__title"><a href="#">Attractive
                                                         location</a></h3>
-                                                <p class="feature-one__text">When nothing prevents our being
-                                                    able to we like best, every pleasure to be welcomed & every.</p>
+                                                <p class="feature-one__text">•	High-speed elevators & ample parking space</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#" class="open-schedule-form"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -610,10 +631,53 @@
                                                 <h3 class="feature-one__title"><a href="#">Modern
                                                         technology</a>
                                                 </h3>
-                                                <p class="feature-one__text">When nothing prevents our being
-                                                    able to we like best, every pleasure to be welcomed & every.</p>
+                                                <p class="feature-one__text">•	Swimming pool with kids’ section and jacuzzi</p>
                                                 <div class="feature-one__btn">
-                                                    <a href="#"> <i class="fa fa-arrow-right"></i>Read
+                                                    <a href="#" class="open-schedule-form"> <i class="fa fa-arrow-right"></i>Read
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                                        <div class="feature-one__single">
+                                            <div class="feature-one__single-inner">
+                                                <div class="feature-one__icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="55px"
+                                                        viewBox="0 -960 960 960" width="55px" fill="#ceae92">
+                                                        <path
+                                                            d="m880-194-80-80v-326H474l-74-74v-86h-86l-80-80h246v160h400v486ZM820-28l-94-92H80v-648l-52-52 56-56L876-84l-56 56ZM160-200h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h166l-80-80h-86v80Zm240-240h-80v-80h80v80Z" />
+                                                    </svg>
+                                                </div>
+                                                <h3 class="feature-one__title"><a href="#">Modern
+                                                        technology</a>
+                                                </h3>
+                                                <p class="feature-one__text">•	Fully equipped clubhouse including gym, yoga, and indoor games</p>
+                                                <div class="feature-one__btn">
+                                                    <a href="#" class="open-schedule-form"> <i class="fa fa-arrow-right"></i>Read
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                                        <div class="feature-one__single">
+                                            <div class="feature-one__single-inner">
+                                                <div class="feature-one__icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="55px"
+                                                        viewBox="0 -960 960 960" width="55px" fill="#ceae92">
+                                                        <path
+                                                            d="m880-194-80-80v-326H474l-74-74v-86h-86l-80-80h246v160h400v486ZM820-28l-94-92H80v-648l-52-52 56-56L876-84l-56 56ZM160-200h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h166l-80-80h-86v80Zm240-240h-80v-80h80v80Z" />
+                                                    </svg>
+                                                </div>
+                                                <h3 class="feature-one__title"><a href="#">Modern
+                                                        technology</a>
+                                                </h3>
+                                                <p class="feature-one__text">•	Fully equipped clubhouse including gym, yoga, and indoor games</p>
+                                                <div class="feature-one__btn">
+                                                    <a href="#" class="open-schedule-form"> <i class="fa fa-arrow-right"></i>Read
                                                         More</a>
                                                 </div>
                                             </div>
@@ -629,135 +693,49 @@
             <!--Feature One End-->
 
             <!--Floor Plan Start-->
-            <section class="floor-plan">
+            <section class="floor-plan" id="apartment">
                 <div class="container">
                     <div class="section-title text-center">
                         <span class="section-title__tagline">Villa plans</span>
                         <h2 class="section-title__title">Apartment plans</h2>
-                        <p class="floor-plan__text">Retro four loko ethical, distillery lomo meh mixtape vice plaid palo
-                            santo
-                            live-edge ugh banjo marfa lyft. <br> Pour-over distillery keytar activated charcoal.
-                            Snackwave
-                            blue
-                            bottle bespoke af farm-to-table <br> 3 wolf moon, beard helvetica godard hell of. Schli hot
-                            chicken
-                            kombucha.</p>
+                        <p class="floor-plan__text">Situated in Sector 10, Greater Noida West (Noida Extension), Kaamya Greens enjoys strategic connectivity:</p>
                     </div>
                     <div class="floor-plan__main-tab-box tabs-box">
                         <ul class="tab-buttons clearfix list-unstyled">
-                            <li data-tab="#penthouse" class="tab-btn active-btn"><span>Penthouse</span></li>
-                            <li data-tab="#studio" class="tab-btn"><span>Stuido</span></li>
-                            <li data-tab="#duplex" class="tab-btn"><span>Duplex</span></li>
+                            <li data-tab="#penthouse" class="tab-btn active-btn"><span>2 BHK</span></li>
+                            <li data-tab="#studio" class="tab-btn"><span>3 BHK</span></li>
+                            <li data-tab="#duplex" class="tab-btn"><span>4 BHK</span></li>
                         </ul>
                         <div class="tabs-content">
                             <!--tab-->
-                            <div class="tab active-tab" id="penthouse">
-                                <div class="floor-plan__tab-content-inner">
-                                    <div class="floor-plan__tab-content-left">
-                                        <ul class="list-unstyled floor-plan__tab-content-details">
-                                            <li>
-                                                <p>Total area</p>
-                                                <span>2800 Sq. Ft</span>
-                                            </li>
-                                            <li>
-                                                <p>Floor no.</p>
-                                                <span>2nd</span>
-                                            </li>
-                                            <li>
-                                                <p>Current status</p>
-                                                <span>Available</span>
-                                            </li>
-                                            <li>
-                                                <p>No. of rooms</p>
-                                                <span>04</span>
-                                            </li>
-                                            <li>
-                                                <p>Parking available</p>
-                                                <span>Yes</span>
-                                            </li>
-                                            <li>
-                                                <p>Price from</p>
-                                                <span>$4500</span>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            <div class="tab active-tab"  id="penthouse">
+                                <div class="floor-plan__tab-content-inner" style="display: flex !important; align-items: center; justify-content: center;">
+                                    
                                     <div class="floor-plan__tab-content-righ">
                                         <img src="https://aports-html.vercel.app/assets/images/resources/floor-plan-tab-content-img-1.png"
-                                            alt="">
-                                    </div>
+                                             alt=""
+                                             style="filter: blur(3px); ">
+                                      </div>
+                                      
                                 </div>
                             </div>
                             <!--tab-->
                             <div class="tab " id="studio">
-                                <div class="floor-plan__tab-content-inner">
-                                    <div class="floor-plan__tab-content-left">
-                                        <ul class="list-unstyled floor-plan__tab-content-details">
-                                            <li>
-                                                <p>Total area</p>
-                                                <span>280 Sq. Ft</span>
-                                            </li>
-                                            <li>
-                                                <p>Floor no.</p>
-                                                <span>2nd</span>
-                                            </li>
-                                            <li>
-                                                <p>Current status</p>
-                                                <span>Available</span>
-                                            </li>
-                                            <li>
-                                                <p>No. of rooms</p>
-                                                <span>04</span>
-                                            </li>
-                                            <li>
-                                                <p>Parking available</p>
-                                                <span>Yes</span>
-                                            </li>
-                                            <li>
-                                                <p>Price from</p>
-                                                <span>$4500</span>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <div class="floor-plan__tab-content-inner" style="display: flex !important; align-items: center; justify-content: center;">
+                                   
                                     <div class="floor-plan__tab-content-righ">
                                         <img src="https://aports-html.vercel.app/assets/images/resources/floor-plan-tab-content-img-1.png"
-                                            alt="">
+                                            alt="" style="filter: blur(3px);">>
                                     </div>
                                 </div>
                             </div>
                             <!--tab-->
                             <div class="tab " id="duplex">
-                                <div class="floor-plan__tab-content-inner">
-                                    <div class="floor-plan__tab-content-left">
-                                        <ul class="list-unstyled floor-plan__tab-content-details">
-                                            <li>
-                                                <p>Total area</p>
-                                                <span>800 Sq. Ft</span>
-                                            </li>
-                                            <li>
-                                                <p>Floor no.</p>
-                                                <span>2nd</span>
-                                            </li>
-                                            <li>
-                                                <p>Current status</p>
-                                                <span>Available</span>
-                                            </li>
-                                            <li>
-                                                <p>No. of rooms</p>
-                                                <span>04</span>
-                                            </li>
-                                            <li>
-                                                <p>Parking available</p>
-                                                <span>Yes</span>
-                                            </li>
-                                            <li>
-                                                <p>Price from</p>
-                                                <span>$4500</span>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <div class="floor-plan__tab-content-inner apartment-floors" style="display: flex !important; align-items: center; justify-content: center;">
+                                    
                                     <div class="floor-plan__tab-content-righ">
                                         <img src="https://aports-html.vercel.app/assets/images/resources/floor-plan-tab-content-img-1.png"
-                                            alt="">
+                                            alt="" style="filter: blur(3px);">>
                                     </div>
                                 </div>
                             </div>
@@ -930,7 +908,7 @@
             <!--Apartments One End-->
 
             <!--Neighborhoods Start-->
-            <section class="neighborhoods">
+            <section class="neighborhoods" id="neighborhoods">
                 <div class="neighborhoods-bg"
                     style="background-image: url(https://aports-html.vercel.app/assets/images/backgrounds/neighborhoods-bg.jpg);">
                 </div>
@@ -946,49 +924,41 @@
                                     <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
                                         <div class="accrodion active">
                                             <div class="accrodion-title">
-                                                <h4>Restaurants</h4>
+                                                <h4>Metro</h4>
                                             </div>
                                             <div class="accrodion-content">
                                                 <div class="inner">
-                                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do
-                                                        eiusmod
-                                                        tempor inci simply free.</p>
+                                                    <p>500 meters from the upcoming metro station</p>
                                                 </div><!-- /.inner -->
                                             </div>
                                         </div>
                                         <div class="accrodion">
                                             <div class="accrodion-title">
-                                                <h4>Central park</h4>
+                                                <h4>Gaur Chowk</h4>
                                             </div>
                                             <div class="accrodion-content">
                                                 <div class="inner">
-                                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do
-                                                        eiusmod
-                                                        tempor inci simply free.</p>
+                                                    <p>5 minutes to Gaur Chowk and NH-24</p>
                                                 </div><!-- /.inner -->
                                             </div>
                                         </div>
                                         <div class="accrodion">
                                             <div class="accrodion-title">
-                                                <h4>Shopping center</h4>
+                                                <h4>Fortis Hospital</h4>
                                             </div>
                                             <div class="accrodion-content">
                                                 <div class="inner">
-                                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do
-                                                        eiusmod
-                                                        tempor inci simply free.</p>
+                                                    <p>Close to Fortis Hospital</p>
                                                 </div><!-- /.inner -->
                                             </div>
                                         </div>
                                         <div class="accrodion">
                                             <div class="accrodion-title">
-                                                <h4>Hospitals</h4>
+                                                <h4>Connectivity</h4>
                                             </div>
                                             <div class="accrodion-content">
                                                 <div class="inner">
-                                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do
-                                                        eiusmod
-                                                        tempor inci simply free.</p>
+                                                    <p>Well-connected to Noida, Ghaziabad, and Delhi NCR</p>
                                                 </div><!-- /.inner -->
                                             </div>
                                         </div>
@@ -1026,11 +996,9 @@
                                         <div class="neighborhoods__popup-box">
                                             <div class="neighborhoods__popup">
                                                 <div class="neighborhoods__popup-inner">
-                                                    <h5 class="neighborhoods__popup-title">Restauant</h5>
-                                                    <p class="neighborhoods__popup-text">Metropolitan Opera House
-                                                        Lincoln Center
-                                                        Theater New York</p>
-                                                    <span class="neighborhoods__popup-km">13.5KM</span>
+                                                    <h5 class="neighborhoods__popup-title">Metro</h5>
+                                                    <p class="neighborhoods__popup-text">500 meters from the upcoming metro station</p>
+                                                    <span class="neighborhoods__popup-km">500 m</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1040,11 +1008,9 @@
                                         <div class="neighborhoods__popup-box">
                                             <div class="neighborhoods__popup">
                                                 <div class="neighborhoods__popup-inner">
-                                                    <h5 class="neighborhoods__popup-title">Central park</h5>
-                                                    <p class="neighborhoods__popup-text">Metropolitan Opera House
-                                                        Lincoln Center
-                                                        Theater New York</p>
-                                                    <span class="neighborhoods__popup-km">13.5KM</span>
+                                                    <h5 class="neighborhoods__popup-title">Gaur Chowk</h5>
+                                                    <p class="neighborhoods__popup-text">5 minutes to Gaur Chowk and NH-24</p>
+                                                    <!-- <span class="neighborhoods__popup-km">13.5KM</span> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -1054,11 +1020,9 @@
                                         <div class="neighborhoods__popup-box">
                                             <div class="neighborhoods__popup">
                                                 <div class="neighborhoods__popup-inner">
-                                                    <h5 class="neighborhoods__popup-title">Shopping center</h5>
-                                                    <p class="neighborhoods__popup-text">Metropolitan Opera House
-                                                        Lincoln Center
-                                                        Theater New York</p>
-                                                    <span class="neighborhoods__popup-km">13.5KM</span>
+                                                    <h5 class="neighborhoods__popup-title">Fortis Hospital</h5>
+                                                    <p class="neighborhoods__popup-text">Close to Fortis Hospital</p>
+                                                    <!-- <span class="neighborhoods__popup-km">13.5KM</span> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -1068,11 +1032,9 @@
                                         <div class="neighborhoods__popup-box">
                                             <div class="neighborhoods__popup">
                                                 <div class="neighborhoods__popup-inner">
-                                                    <h5 class="neighborhoods__popup-title">Hospitals</h5>
-                                                    <p class="neighborhoods__popup-text">Metropolitan Opera House
-                                                        Lincoln Center
-                                                        Theater New York</p>
-                                                    <span class="neighborhoods__popup-km">13.5KM</span>
+                                                    <h5 class="neighborhoods__popup-title">Connectivity</h5>
+                                                    <p class="neighborhoods__popup-text">Well-connected to Noida, Ghaziabad, and Delhi NCR</p>
+                                                    <!-- <span class="neighborhoods__popup-km">13.5KM</span> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -1176,7 +1138,7 @@
             <!--Brand One End-->
 
             <!--Contact One Start-->
-            <section class="contact-one">
+            <section class="contact-one" id="contact">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-4 col-lg-5">
@@ -1195,9 +1157,7 @@
                                         <p class="contact-one__person-sub-title">Certified agent</p>
                                     </div>
                                 </div>
-                                <p class="contact-one__text-1">Lorem ipsum dolor sit amet, consecte adipiscing elit. In
-                                    hac
-                                    habitasse platea dictumst. Duis porta, quam ut finibus ultrices.</p>
+                                <p class="contact-one__text-1">Fill out the form below to schedule a site visit or request detailed pricing and availability.</p>
                                 <ul class="list-unstyled contact-one__list">
                                     <li>
                                         <div class="icon">
@@ -1350,91 +1310,7 @@
             <!--Contact One End-->
 
             <!--News One Start-->
-            <section class="news-one">
-                <div class="container">
-                    <div class="section-title text-center">
-                        <span class="section-title__tagline">What's Happening</span>
-                        <h2 class="section-title__title">Latest news updates <br> & articles</h2>
-                    </div>
-                    <div class="row">
-                        <!--News One Single Start-->
-                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                            <div class="news-one__single">
-                                <div class="news-one__img">
-                                    <img src="https://aports-html.vercel.app/assets/images/blog/news-1-1.jpg" alt="">
-                                </div>
-                                <div class="news-one__content-box">
-                                    <div class="news-one__date">
-                                        <p>18 april</p>
-                                    </div>
-                                    <div class="news-one__content">
-                                        <p class="news-one__author">by John Smith</p>
-                                        <h3 class="news-one__title"><a href="#">Let's understand the different types of
-                                                luxury spaces</a></h3>
-                                    </div>
-                                    <div class="news-one__bottom">
-                                        <a href="#" class="news-one__more"> <i class="fa fa-arrow-right"></i> Read
-                                            More</a>
-                                        <a href="#" class="news-one__comments"> <i class="fas fa-comments"></i> 2
-                                            Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--News One Single End-->
-                        <!--News One Single Start-->
-                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                            <div class="news-one__single">
-                                <div class="news-one__img">
-                                    <img src="https://aports-html.vercel.app/assets/images/blog/news-1-2.jpg" alt="">
-                                </div>
-                                <div class="news-one__content-box">
-                                    <div class="news-one__date">
-                                        <p>18 april</p>
-                                    </div>
-                                    <div class="news-one__content">
-                                        <p class="news-one__author">by John Smith</p>
-                                        <h3 class="news-one__title"><a href="#">Lorem Ipsum has been the industry's
-                                                standard dummy</a></h3>
-                                    </div>
-                                    <div class="news-one__bottom">
-                                        <a href="#" class="news-one__more"> <i class="fa fa-arrow-right"></i> Read
-                                            More</a>
-                                        <a href="#" class="news-one__comments"> <i class="fas fa-comments"></i> 2
-                                            Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--News One Single End-->
-                        <!--News One Single Start-->
-                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                            <div class="news-one__single">
-                                <div class="news-one__img">
-                                    <img src="https://aports-html.vercel.app/assets/images/blog/news-1-3.jpg" alt="">
-                                </div>
-                                <div class="news-one__content-box">
-                                    <div class="news-one__date">
-                                        <p>18 april</p>
-                                    </div>
-                                    <div class="news-one__content">
-                                        <p class="news-one__author">by John Smith</p>
-                                        <h3 class="news-one__title"><a href="#">The point of using Lorem Ipsum is that
-                                                it has a more</a></h3>
-                                    </div>
-                                    <div class="news-one__bottom">
-                                        <a href="#" class="news-one__more"> <i class="fa fa-arrow-right"></i> Read
-                                            More</a>
-                                        <a href="#" class="news-one__comments"> <i class="fas fa-comments"></i> 2
-                                            Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--News One Single End-->
-                    </div>
-                </div>
-            </section>
+            
             <!--News One End-->
 
             <!--Gallery One Start-->
@@ -1614,8 +1490,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                                     <div class="footer-widget__column footer-widget__about">
                                         <div class="footer-widget__about-text-box">
-                                            <p class="footer-widget__about-text">Aports find out all the ways to enjoy
-                                                modern and luxury residential life around the world.</p>
+                                            <p class="footer-widget__about-text">Sikka Kaamya Greens is more than just a home — it’s a community ready for you to join. With possession ready apartments, premium amenities, and a trusted builder, this is your chance to invest in a lifestyle that grows with you.</p>
                                         </div>
                                         <div class="site-footer__social">
                                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1840,24 +1715,27 @@
         <!-- form script -->
         <script>
             const scheduleModal = document.getElementById('modal');
-            const openModalBtn = document.getElementById('openModalBtn');
+            const openModalBtns = document.querySelectorAll('.open-schedule-form');
             const closeModalBtn = document.getElementById('closeModalBtn');
-
-            openModalBtn.addEventListener('click', () => {
+          
+            openModalBtns.forEach(btn => {
+              btn.addEventListener('click', () => {
                 scheduleModal.classList.add('active');
+              });
             });
-
+          
             closeModalBtn.addEventListener('click', () => {
-                scheduleModal.classList.remove('active');
+              scheduleModal.classList.remove('active');
             });
-
+          
             // Optional: Close on outside click
             scheduleModal.addEventListener('click', (e) => {
-                if (e.target === scheduleModal) {
-                    scheduleModal.classList.remove('active');
-                }
+              if (e.target === scheduleModal) {
+                scheduleModal.classList.remove('active');
+              }
             });
-        </script>
+          </script>
+          
 
 
         <!-- Other Scripts -->
