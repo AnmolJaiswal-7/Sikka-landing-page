@@ -8618,6 +8618,56 @@ html {
   margin-left: 10px;
 }
 
+
+.site-footer__top-inner .row {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  flex-wrap: wrap;
+  gap: 40px; /* optional: spacing between columns */
+}
+.footer-widget__column {
+  min-width: 250px;
+  max-width: 300px;
+}
+.footer-widget__about-text {
+  margin-top: 20px;
+}
+
+
+/* Basic style for all screen sizes (hidden by default) */
+.mobile-call-button {
+  display: none;
+}
+
+/* Show only on mobile devices */
+@media (max-width: 768px) {
+  .mobile-call-button {
+    display: block;
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #a9bf04;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: 500;
+    /* border-radius: 30px; */
+    text-align: center;
+    z-index: 1000;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+  }
+
+  .mobile-call-button:hover {
+    background-color: #d8f403;
+  }
+}
+
   
   /*--------------------------------------------------------------
   # End
