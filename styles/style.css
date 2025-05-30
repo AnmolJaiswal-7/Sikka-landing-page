@@ -18,6 +18,11 @@
 # Common
 --------------------------------------------------------------*/
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 :root {
     --aports-font: 'DM Sans', sans-serif;
     --aports-reey-font: "reeyregular";
@@ -2368,7 +2373,7 @@
   .feature-one {
     position: relative;
     display: block;
-    padding: 120px 0 90px;
+    padding: 120px 0 0;
     z-index: 1;
   }
   
@@ -2664,6 +2669,16 @@
     display: block;
     margin-top: 22px;
   }
+
+  .feature-one__btn span{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--aports-gray);
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+  }
   
   .feature-one__btn a {
     position: relative;
@@ -2674,12 +2689,14 @@
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
   }
+
+
   
   .feature-one__single:hover .feature-one__btn a {
     color: var(--aports-white);
   }
   
-  .feature-one__btn a i {
+  .feature-one__btn span i {
     height: 15px;
     width: 15px;
     background-color: var(--aports-gray);
@@ -3879,6 +3896,7 @@
   .footer-widget__about {
     position: relative;
     display: block;
+    top: -80px;
     margin-top: -3px;
   }
   
