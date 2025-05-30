@@ -2722,7 +2722,10 @@ html {
   .floor-plan {
     position: relative;
     display: block;
-    padding: 0 0 120px;
+    top: -150px;;
+    z-index: 200;
+    /* padding: 0 0 80px; */
+
   }
   
   .floor-plan .section-title {
@@ -8610,7 +8613,10 @@ html {
   margin-top: 10px;
 }
 
-
+.main-menu__left img{
+  width: 149px;
+  margin-left: 10px;
+}
 
   
   /*--------------------------------------------------------------
