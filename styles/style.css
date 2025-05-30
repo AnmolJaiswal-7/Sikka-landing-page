@@ -709,7 +709,7 @@ html {
   }
   
   .main-menu .main-menu__list>li {
-    padding-top: 35px;
+    /* padding-top: 35px; */
     position: relative;
   }
   
@@ -720,7 +720,7 @@ html {
   
   .main-menu .main-menu__list>li+li,
   .stricky-header .main-menu__list>li+li {
-    margin-left: 75px;
+    margin-left: 40px;
   }
   
   .main-menu .main-menu__list>li>a,
@@ -8357,7 +8357,7 @@ html {
 }
 
 .main-menu__list li:first-child{
-  margin-left: 75px;
+  margin-left: 39px;
 }
   
   
@@ -8614,7 +8614,7 @@ html {
 }
 
 .main-menu__left img{
-  width: 149px;
+  width: 129px;
   margin-left: 10px;
 }
 
