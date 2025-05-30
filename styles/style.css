@@ -2979,13 +2979,13 @@ html {
     line-height: 34px;
   }
   
-  .apartments-one__hover-title a {
+  .apartments-one__hover-title span {
     color: var(--aports-white);
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
   }
   
-  .apartments-one__hover-title a:hover {
+  .apartments-one__hover-title span:hover {
     color: var(--aports-base);
   }
   
