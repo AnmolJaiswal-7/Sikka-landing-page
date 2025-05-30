@@ -30,11 +30,11 @@ html {
     --aports-gray-rgb: 135, 137, 142;
     --aports-white: #ffffff;
     --aports-white-rgb: 255, 255, 255;
-    --aports-base: #ceae92;
+    --aports-base: #a9bf04;
     --aports-base-rgb: 206, 174, 146;
     --aports-black: #32343b;
     --aports-black-rgb: 50, 52, 59;
-    --aports-primary: #f4efeb;
+    --aports-primary: #bbcbb6;
     --aports-primary-rgb: 244, 239, 235;
     --aports-bdr-color: #e2dad3;
     --aports-bdr-color-rgb: 226, 218, 211;
@@ -2383,7 +2383,7 @@ html {
     left: 0;
     right: 0;
     height: 670px;
-    background-color: var(--aports-primary);
+    background-color: #000000de;
     z-index: 1;
   }
   
@@ -3899,7 +3899,7 @@ html {
   .footer-widget__about {
     position: relative;
     display: block;
-    top: -80px;
+    top: -36px;
     margin-top: -3px;
   }
   
@@ -8284,7 +8284,7 @@ html {
     width: 80%;
     max-width: 280px;
     height: 100vh;
-    background-color: #9b8585; /* Customize as needed */
+    background-color: #272727; /* Customize as needed */
     z-index: 9999;
     padding: 40px 20px;
     transition: left 0.3s ease-in-out;
@@ -8457,11 +8457,11 @@ html {
 }
 
 .neighborhoods__faq .accrodion.active .accrodion-title {
-  color: #dbb27c;
+  color: #a9bf04;
 }
 
 .neighborhoods__faq .accrodion.active .accrodion-title h4{
-  color: #dbb27c;
+  color: #a9bf04;
 }
 
 .neighborhoods__faq .accrodion-title::after {
